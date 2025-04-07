@@ -1,7 +1,7 @@
 # Automated Path Planning for Automated Icing Application
 
 This is my Master Thesis Project to obtain a Master of Science in the field of Robotics at University West, Trollhättan, Sweden.  
-It is as shorter GitHub repo where the main aspects are kept intect, but the results might not be perfect. The program runs, but some aspects to improve the paths even further are missing for licencing reasons.
+It is as shorter GitHub repo where the main aspects are kept intact, but the results might not be perfect. The program runs, but some aspects to improve the paths even further are missing for licencing/IP reasons.
 The goal of the practical part of the thesis is to develop an easy method to generate paths for a 6-DoF robot to automatically decorate gingerbreads of any viable shape with icing. The path generation should work for all decorations that are of simple geometric shapes such as lines, circles, or polylines, as well as simple text. The input method should be as easy as possible, requiring no technical knowledge.  
 The paths should be sent to a robot and drawn using an icing extruder. To do this, the position of the actual gingerbread needs to be aligned with the decoration, the decoration needs to be transformed to real-world coordinates, and the paths need to be sent to the robot. There, they need to be parsed, the extruder needs to be controlled, and the decoration should be drawn.  
 
