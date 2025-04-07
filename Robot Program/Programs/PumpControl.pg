@@ -1,0 +1,54 @@
+.PROGRAM PumpControl.pc() #0
+  ; *******************************************************************
+  ;
+  ; Programm:     PumpControl.pc
+  ; Beschreibung:
+  ; Autor:        User
+  ;
+  ; Datum:        05.03.2025
+  ;
+  ; *******************************************************************
+  ;
+  ; *******************************************************************
+  SIGNAL PumpAuto
+  HERE .pos
+  DECOMPOSE .prev_pos[0] = .pos
+  SETOUTDA 2 = 3001, 12, 1, 10, 0
+  TWAIT 0.5
+  .analog_value=0
+  .speed_pc=0
+  WHILE SIG(PumpControlSig) DO
+    ; Check if the motion program has enabled analog updates
+    HERE .pos
+    DECOMPOSE .curr_pos[0] = .pos
+    ; Calculate speed
+    .speed_pc = SQRT ((.curr_pos[0] - .prev_pos[0]) * (.curr_pos[0] - .prev_pos[0]) + (.curr_pos[1] - .prev_pos[1]) * (.curr_pos[1] - .prev_pos[1]) + (.curr_pos[2] - .prev_pos[2]) * (.curr_pos[2] - .prev_pos[2]))
+    ; Scale analog output (e.g., 0-10V for 0-200 mm/s)
+    IF SIG (pumpon) THEN
+      .analog_value = ((.speed_pc / 0.05) / 20) * 2.3
+      PRINT .analog_value
+      IF SIG (PumpOverride) THEN
+        .analog_value = 0.5
+      END
+      IF .analog_value > 10 THEN
+        .analog_value = 10
+      END
+      .analog_value = 10
+      SIGNAL 1, -2
+      OUTDA .analog_value, 2 ; Replace with actual analog output command
+    ELSE
+      SIGNAL -1, -2
+    END
+    MESSAGES ON
+    PRINT 1: "A:",.analog_value,";V:",.speed_pc
+    pspeed=.analog_value
+    rspeed=.speed_pc
+    pON=SIG(pumpon)
+    .prev_pos[0] = .curr_pos[0] ; Update position for next loop
+    .prev_pos[1] = .curr_pos[1]
+    .prev_pos[2] = .curr_pos[2]
+    TWAIT 0.05 ; Avoid unnecessary CPU usage
+  END
+  SIGNAL -PumpAuto
+  SIGNAL -1, -2
+.END

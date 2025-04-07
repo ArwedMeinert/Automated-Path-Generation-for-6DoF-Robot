@@ -1,0 +1,8 @@
+{
+    "blur_kernel": 29,
+    "adaptive_block": 11,
+    "adaptive_c": 2,
+    "canny_min": 50,
+    "canny_max": 150,
+    "min_cont_pixel": 50
+}

@@ -1,0 +1,145 @@
+{
+    "header": {
+        "version": "1.0",
+        "shape": "DecorationShapes/iTest",
+        "bounding_box": {
+            "min": [
+                20,
+                20
+            ],
+            "max": [
+                844,
+                796
+            ]
+        },
+        "center_of_bounding_box": [
+            432.0,
+            408.0
+        ],
+        "center_of_gravity": [
+            432.0,
+            408.0
+        ],
+        "ellipse parameters": [
+            [
+                435.0830993652344,
+                358.1856994628906
+            ],
+            [
+                742.64111328125,
+                810.7274169921875
+            ],
+            102.84962463378906
+        ],
+        "units": "pixel",
+        "scale": 1,
+        "description": "Product outline with decoration paths.",
+        "Date": "Exported at 2025-03-12 08:26:44",
+        "start_position": [
+            250,
+            250
+        ]
+    },
+    "paths": [
+        {
+            "path_id": 0,
+            "total_length": 0.0,
+            "segments": [
+                {
+                    "segment_id": 0,
+                    "type": "point",
+                    "points": [
+                        [
+                            621,
+                            417
+                        ],
+                        [
+                            621,
+                            417
+                        ]
+                    ],
+                    "length": 0,
+                    "angle": 0,
+                    "angle_difference": 180,
+                    "interpolation_resolution": 13.0,
+                    "transition_flag": true
+                }
+            ]
+        },
+        {
+            "path_id": 1,
+            "total_length": 0.0,
+            "segments": [
+                {
+                    "segment_id": 0,
+                    "type": "point",
+                    "points": [
+                        [
+                            502,
+                            254
+                        ],
+                        [
+                            502,
+                            254
+                        ]
+                    ],
+                    "length": 0,
+                    "angle": 0,
+                    "angle_difference": 180,
+                    "interpolation_resolution": 13.0,
+                    "transition_flag": true
+                }
+            ]
+        },
+        {
+            "path_id": 2,
+            "total_length": 0.0,
+            "segments": [
+                {
+                    "segment_id": 0,
+                    "type": "point",
+                    "points": [
+                        [
+                            415,
+                            411
+                        ],
+                        [
+                            415,
+                            411
+                        ]
+                    ],
+                    "length": 0,
+                    "angle": 0,
+                    "angle_difference": 180,
+                    "interpolation_resolution": 13.0,
+                    "transition_flag": true
+                }
+            ]
+        },
+        {
+            "path_id": 3,
+            "total_length": 0.0,
+            "segments": [
+                {
+                    "segment_id": 0,
+                    "type": "point",
+                    "points": [
+                        [
+                            314,
+                            253
+                        ],
+                        [
+                            314,
+                            253
+                        ]
+                    ],
+                    "length": 0,
+                    "angle": 0,
+                    "angle_difference": 180,
+                    "interpolation_resolution": 13.0,
+                    "transition_flag": true
+                }
+            ]
+        }
+    ]
+}

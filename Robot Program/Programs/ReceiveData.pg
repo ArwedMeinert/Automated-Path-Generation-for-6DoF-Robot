@@ -1,0 +1,130 @@
+.PROGRAM ReceiveData.pc() #2
+	; *******************************************************************
+	;
+	; Programm: ReceiveData.pc
+	; Beschreibung: Program to receive the motion data asyncrously. Needs to be called in the motion program once the robot moves to the first waypoint. After that, the paths are recived in this program and buffered in a seperate variable to be used.
+	; Autor: User
+	;
+	; Datum: 24.02.2025
+	;
+	; *******************************************************************
+	;
+	.$ack = "ACK"
+	.ret = -1
+	.ret2 = -1
+	.timeout = 1
+	.max_length = 100 ;maximal length of the char array to buffer (needs to be less than 255/2!!!) a string can obnly hold 255 chars. So it needs to be loaded in dynamically)
+	.$send_buf[1] = .$ack
+	.buf_n = 1
+	buffer_no = 0
+	.path = 0
+	PRINT "Socket ID PC: ", socketid
+	TCP_SEND .ret2, socketid, .$send_buf[1], .buf_n, .timeout;First ACK to indicate the start has been ReceiveData.pc
+	SIGNAL -TransmissionEnd
+	SIGNAL -MotionReceived
+	WHILE NOT SIG (TransmissionEnd) DO
+		.ret = -1
+		WHILE .ret < 0 DO ;do until a command has been received
+			TCP_RECV .ret, socketid, $recv_dt[0], rcv_cnt, .timeout, 100 ;Here, the command is written to the array recv_dt
+			TWAIT 0.2
+		END
+		IF $recv_dt[0] == "End" THEN ;indicates the end of the transmission
+			SIGNAL TransmissionEnd ;set signal for motion program
+		ELSE ;decode the first command (different than the others since it only includes the first coordinate)
+			.$command = $recv_dt[0] ;starts saving the recv_dt elements
+			.ret = -1
+			.chunk = 1
+			PRINT "Received Command: ", .$command
+			;S/(18.3/180.5/20)#L/(22.4/181.0/20///)/20/100#L/(22.7/178.6/20///)/20/2#L/(20.7/171.6/20///)/20/100#L/(16.5/158.5/20///)/20/100#L/(15.2/156.9/20///)/20/10#E#
+			.$temp = $DECODE (.$command, "(")
+			.$temp = $DECODE (.$command, "(", 1)
+			$x1 = $DECODE (.$command, "/")
+			.$temp = $DECODE (.$command, "/", 1)
+			$y1 = $DECODE (.$command, "/")
+			.$temp = $DECODE (.$command, "/", 1)
+			$z1 = $DECODE (.$command, ")")
+			.$temp = $DECODE (.$command, "#")
+			.$temp = $DECODE (.$command, "#", 1)
+			$move_command[0, buffer_no] = "L"
+			x_coord[0, 0, buffer_no] = VAL ($x1)
+			y_coord[0, 0, buffer_no] = VAL ($y1)
+			z_coord[0, 0, buffer_no] = VAL ($z1)
+			stop_dist[0, buffer_no] = 0
+			speed_cmd[0, buffer_no] = 20
+			accuracy_cmd[0, buffer_no] = 20
+			.i_1 = 1
+			IF buffer_no < 1 THEN ; indicating that the first coordinate has been parsed
+				SIGNAL MotionReceived
+			END
+			WHILE .$command <> "E#" DO ;Strings can only have 255 chars. therefore, it is processed in chunks
+				; The last command will always be E#
+				IF (LEN (.$command) < 155 AND .chunk < rcv_cnt) THEN
+					.$command = .$command + $recv_dt[.chunk]
+					.chunk = .chunk + 1
+					PRINT "Amounts the string was refreshed: ", .chunk
+					PRINT "Amounts the string should refreshed: ", rcv_cnt
+				END
+				; the string is parsed: #L/(200/100/20///)/20/5/10#
+				$move_command[.i_1, buffer_no] = $DECODE (.$command, "/");L
+				.$temp = $DECODE (.$command, "(") ;/
+				.$temp = $DECODE (.$command, "(", 1);(
+				$x1 = $DECODE (.$command, "/");200
+				;/100/20///)/20/5#
+				.$temp = $DECODE (.$command, "/", 1);/
+				$y1 = $DECODE (.$command, "/");100
+				.$temp = $DECODE (.$command, "/", 1); /
+				;20///)/20/5/10#
+				$z1 = $DECODE (.$command, "/");20
+				x_coord[.i_1, 0, buffer_no] = VAL ($x1)
+				y_coord[.i_1, 0, buffer_no] = VAL ($y1)
+				z_coord[.i_1, 0, buffer_no] = VAL ($z1)
+				IF $move_command[.i_1, buffer_no] <> "C" THEN
+					x_coord[.i_1, 1, buffer_no] = 0
+					y_coord[.i_1, 1, buffer_no] = 0
+					z_coord[.i_1, 1, buffer_no] = 0
+					.$temp = $DECODE (.$command, ")");///
+					.$temp = $DECODE (.$command, "/");)
+					.$temp = $DECODE (.$command, "/", 1);/
+					;20/5/10#
+				END
+				IF $move_command[.i_1, buffer_no] == "C" THEN
+					.$temp = $DECODE (.$command, "/", 1)
+					$x1 = $DECODE (.$command, "/")
+					.$temp = $DECODE (.$command, "/", 1)
+					$y1 = $DECODE (.$command, "/")
+					.$temp = $DECODE (.$command, "/", 1)
+					$z1 = $DECODE (.$command, "/")
+					x_coord[.i_1, 1, buffer_no] = VAL ($x1)
+					y_coord[.i_1, 1, buffer_no] = VAL ($y1)
+					z_coord[.i_1, 1, buffer_no] = VAL ($z1)
+					.$temp = $DECODE (.$command, "/")
+					.$temp = $DECODE (.$command, "/", 1)
+				END
+				.$speed_temp = $DECODE (.$command, "/");20
+				speed_cmd[.i_1, buffer_no] = VAL (.$speed_temp)
+				.$temp = $DECODE (.$command, "/", 1);/
+				;5/10#
+				.$acc_cmd = $DECODE (.$command, "/");5
+				accuracy_cmd[.i_1, buffer_no] = VAL (.$acc_cmd)
+				.$temp = $DECODE (.$command, "/", 1);/
+				.$stop_cmd = $DECODE (.$command, "#");10
+				stop_dist[.i_1, buffer_no] = VAL (.$stop_cmd)
+				.$temp = $DECODE (.$command, "#", 1);#
+				.i_1 = .i_1 + 1
+				PRINT "Remaining String: ", .$command
+			END
+			FOR .i = .chunk TO 1 ;trying to delete teh string, but does not work and is not useful since the variable still exists
+				$recv_dt[.i] = ""
+			END
+		END
+		i[buffer_no] = .i_1 ;amount of segments in the path
+		IF NOT SIG (TransmissionEnd) THEN
+			buffer_no = buffer_no + 1
+		END
+		.path = .path + 1
+		$send_buf[1] = .$ack
+		buf_n = 1
+		TCP_SEND .ret2, socketid, $send_buf[1], buf_n, .timeout ;Send ACK either for new coordinates or for ack the end of the transmision
+		.ret2 = -1
+	END
+.END

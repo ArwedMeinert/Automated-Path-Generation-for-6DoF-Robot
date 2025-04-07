@@ -1,0 +1,1176 @@
+{
+    "header": {
+        "version": "1.0",
+        "shape": "DecorationShapes/Gingerbreadman2",
+        "bounding_box": {
+            "min": [
+                20,
+                20
+            ],
+            "max": [
+                764,
+                846
+            ]
+        },
+        "center_of_bounding_box": [
+            392.0,
+            433.0
+        ],
+        "center_of_gravity": [
+            392.0,
+            433.0
+        ],
+        "ellipse parameters": [
+            [
+                390.7109680175781,
+                427.1029357910156
+            ],
+            [
+                628.9724731445312,
+                771.889404296875
+            ],
+            155.4869842529297
+        ],
+        "units": "pixel",
+        "scale": 1,
+        "description": "Product outline with decoration paths.",
+        "Date": "Exported at 2025-03-12 09:45:11",
+        "start_position": [
+            250,
+            250
+        ]
+    },
+    "paths": [
+        {
+            "path_id": 0,
+            "total_length": 1301.51,
+            "segments": [
+                {
+                    "segment_id": 0,
+                    "type": "line",
+                    "points": [
+                        [
+                            177,
+                            182
+                        ],
+                        [
+                            210,
+                            181
+                        ]
+                    ],
+                    "length": 33.02,
+                    "angle": -1.74,
+                    "angle_difference": 180,
+                    "interpolation_resolution": 13.0,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 1,
+                    "type": "line",
+                    "points": [
+                        [
+                            211,
+                            182
+                        ],
+                        [
+                            237,
+                            187
+                        ]
+                    ],
+                    "length": 26.48,
+                    "angle": 10.89,
+                    "angle_difference": 12.62,
+                    "interpolation_resolution": 4.63,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 2,
+                    "type": "line",
+                    "points": [
+                        [
+                            238,
+                            188
+                        ],
+                        [
+                            255,
+                            197
+                        ]
+                    ],
+                    "length": 19.24,
+                    "angle": 27.9,
+                    "angle_difference": 17.01,
+                    "interpolation_resolution": 4.85,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 3,
+                    "type": "line",
+                    "points": [
+                        [
+                            256,
+                            198
+                        ],
+                        [
+                            271,
+                            213
+                        ]
+                    ],
+                    "length": 21.21,
+                    "angle": 45.0,
+                    "angle_difference": 17.1,
+                    "interpolation_resolution": 4.86,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 4,
+                    "type": "line",
+                    "points": [
+                        [
+                            271,
+                            214
+                        ],
+                        [
+                            284,
+                            231
+                        ]
+                    ],
+                    "length": 21.4,
+                    "angle": 52.59,
+                    "angle_difference": 7.59,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 5,
+                    "type": "line",
+                    "points": [
+                        [
+                            284,
+                            232
+                        ],
+                        [
+                            289,
+                            243
+                        ]
+                    ],
+                    "length": 12.08,
+                    "angle": 65.56,
+                    "angle_difference": 12.96,
+                    "interpolation_resolution": 4.65,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 6,
+                    "type": "line",
+                    "points": [
+                        [
+                            289,
+                            244
+                        ],
+                        [
+                            296,
+                            275
+                        ]
+                    ],
+                    "length": 31.78,
+                    "angle": 77.28,
+                    "angle_difference": 11.72,
+                    "interpolation_resolution": 4.59,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 7,
+                    "type": "line",
+                    "points": [
+                        [
+                            296,
+                            276
+                        ],
+                        [
+                            296,
+                            330
+                        ]
+                    ],
+                    "length": 54.0,
+                    "angle": 90.0,
+                    "angle_difference": 12.72,
+                    "interpolation_resolution": 4.64,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 8,
+                    "type": "line",
+                    "points": [
+                        [
+                            295,
+                            331
+                        ],
+                        [
+                            291,
+                            347
+                        ]
+                    ],
+                    "length": 16.49,
+                    "angle": 104.04,
+                    "angle_difference": 14.04,
+                    "interpolation_resolution": 4.7,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 9,
+                    "type": "line",
+                    "points": [
+                        [
+                            290,
+                            349
+                        ],
+                        [
+                            284,
+                            357
+                        ]
+                    ],
+                    "length": 10.0,
+                    "angle": 126.87,
+                    "angle_difference": 22.83,
+                    "interpolation_resolution": 5.14,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 10,
+                    "type": "line",
+                    "points": [
+                        [
+                            283,
+                            358
+                        ],
+                        [
+                            271,
+                            371
+                        ]
+                    ],
+                    "length": 17.69,
+                    "angle": 132.71,
+                    "angle_difference": 5.84,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 11,
+                    "type": "line",
+                    "points": [
+                        [
+                            268,
+                            373
+                        ],
+                        [
+                            249,
+                            392
+                        ]
+                    ],
+                    "length": 26.87,
+                    "angle": 135.0,
+                    "angle_difference": 2.29,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 12,
+                    "type": "line",
+                    "points": [
+                        [
+                            248,
+                            392
+                        ],
+                        [
+                            247,
+                            393
+                        ]
+                    ],
+                    "length": 1.41,
+                    "angle": 135.0,
+                    "angle_difference": 0.0,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 13,
+                    "type": "line",
+                    "points": [
+                        [
+                            246,
+                            394
+                        ],
+                        [
+                            235,
+                            406
+                        ]
+                    ],
+                    "length": 16.28,
+                    "angle": 132.51,
+                    "angle_difference": 2.49,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 14,
+                    "type": "line",
+                    "points": [
+                        [
+                            235,
+                            407
+                        ],
+                        [
+                            236,
+                            417
+                        ]
+                    ],
+                    "length": 10.05,
+                    "angle": 84.29,
+                    "angle_difference": 48.22,
+                    "interpolation_resolution": 6.41,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 15,
+                    "type": "line",
+                    "points": [
+                        [
+                            238,
+                            418
+                        ],
+                        [
+                            251,
+                            421
+                        ]
+                    ],
+                    "length": 13.34,
+                    "angle": 12.99,
+                    "angle_difference": 71.29,
+                    "interpolation_resolution": 7.56,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 16,
+                    "type": "line",
+                    "points": [
+                        [
+                            252,
+                            421
+                        ],
+                        [
+                            336,
+                            422
+                        ]
+                    ],
+                    "length": 84.01,
+                    "angle": 0.68,
+                    "angle_difference": 12.31,
+                    "interpolation_resolution": 4.62,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 17,
+                    "type": "line",
+                    "points": [
+                        [
+                            337,
+                            423
+                        ],
+                        [
+                            351,
+                            437
+                        ]
+                    ],
+                    "length": 19.8,
+                    "angle": 45.0,
+                    "angle_difference": 44.32,
+                    "interpolation_resolution": 6.22,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 18,
+                    "type": "line",
+                    "points": [
+                        [
+                            351,
+                            438
+                        ],
+                        [
+                            360,
+                            451
+                        ]
+                    ],
+                    "length": 15.81,
+                    "angle": 55.3,
+                    "angle_difference": 10.3,
+                    "interpolation_resolution": 4.52,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 19,
+                    "type": "line",
+                    "points": [
+                        [
+                            360,
+                            452
+                        ],
+                        [
+                            368,
+                            470
+                        ]
+                    ],
+                    "length": 19.7,
+                    "angle": 66.04,
+                    "angle_difference": 10.73,
+                    "interpolation_resolution": 4.54,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 20,
+                    "type": "line",
+                    "points": [
+                        [
+                            368,
+                            471
+                        ],
+                        [
+                            375,
+                            506
+                        ]
+                    ],
+                    "length": 35.69,
+                    "angle": 78.69,
+                    "angle_difference": 12.65,
+                    "interpolation_resolution": 4.63,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 21,
+                    "type": "line",
+                    "points": [
+                        [
+                            375,
+                            507
+                        ],
+                        [
+                            375,
+                            539
+                        ]
+                    ],
+                    "length": 32.0,
+                    "angle": 90.0,
+                    "angle_difference": 11.31,
+                    "interpolation_resolution": 4.57,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 22,
+                    "type": "line",
+                    "points": [
+                        [
+                            374,
+                            541
+                        ],
+                        [
+                            370,
+                            553
+                        ]
+                    ],
+                    "length": 12.65,
+                    "angle": 108.43,
+                    "angle_difference": 18.43,
+                    "interpolation_resolution": 4.92,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 23,
+                    "type": "line",
+                    "points": [
+                        [
+                            369,
+                            554
+                        ],
+                        [
+                            365,
+                            566
+                        ]
+                    ],
+                    "length": 12.65,
+                    "angle": 108.43,
+                    "angle_difference": 0.0,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 24,
+                    "type": "line",
+                    "points": [
+                        [
+                            367,
+                            568
+                        ],
+                        [
+                            388,
+                            570
+                        ]
+                    ],
+                    "length": 21.1,
+                    "angle": 5.44,
+                    "angle_difference": 102.99,
+                    "interpolation_resolution": 9.15,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 25,
+                    "type": "line",
+                    "points": [
+                        [
+                            389,
+                            570
+                        ],
+                        [
+                            412,
+                            569
+                        ]
+                    ],
+                    "length": 23.02,
+                    "angle": -2.49,
+                    "angle_difference": 7.93,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 26,
+                    "type": "line",
+                    "points": [
+                        [
+                            413,
+                            568
+                        ],
+                        [
+                            426,
+                            565
+                        ]
+                    ],
+                    "length": 13.34,
+                    "angle": -12.99,
+                    "angle_difference": 10.51,
+                    "interpolation_resolution": 4.53,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 27,
+                    "type": "line",
+                    "points": [
+                        [
+                            427,
+                            564
+                        ],
+                        [
+                            437,
+                            561
+                        ]
+                    ],
+                    "length": 10.44,
+                    "angle": -16.7,
+                    "angle_difference": 3.7,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 28,
+                    "type": "line",
+                    "points": [
+                        [
+                            438,
+                            560
+                        ],
+                        [
+                            454,
+                            553
+                        ]
+                    ],
+                    "length": 17.46,
+                    "angle": -23.63,
+                    "angle_difference": 6.93,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 29,
+                    "type": "line",
+                    "points": [
+                        [
+                            455,
+                            552
+                        ],
+                        [
+                            470,
+                            544
+                        ]
+                    ],
+                    "length": 17.0,
+                    "angle": -28.07,
+                    "angle_difference": 4.44,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 30,
+                    "type": "line",
+                    "points": [
+                        [
+                            471,
+                            543
+                        ],
+                        [
+                            476,
+                            538
+                        ]
+                    ],
+                    "length": 7.07,
+                    "angle": -45.0,
+                    "angle_difference": 16.93,
+                    "interpolation_resolution": 4.85,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 31,
+                    "type": "line",
+                    "points": [
+                        [
+                            477,
+                            537
+                        ],
+                        [
+                            479,
+                            525
+                        ]
+                    ],
+                    "length": 12.17,
+                    "angle": -80.54,
+                    "angle_difference": 35.54,
+                    "interpolation_resolution": 5.78,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 32,
+                    "type": "line",
+                    "points": [
+                        [
+                            478,
+                            523
+                        ],
+                        [
+                            474,
+                            505
+                        ]
+                    ],
+                    "length": 18.44,
+                    "angle": -102.53,
+                    "angle_difference": 21.99,
+                    "interpolation_resolution": 5.1,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 33,
+                    "type": "line",
+                    "points": [
+                        [
+                            473,
+                            504
+                        ],
+                        [
+                            443,
+                            449
+                        ]
+                    ],
+                    "length": 62.65,
+                    "angle": -118.61,
+                    "angle_difference": 16.08,
+                    "interpolation_resolution": 4.8,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 34,
+                    "type": "line",
+                    "points": [
+                        [
+                            442,
+                            448
+                        ],
+                        [
+                            409,
+                            379
+                        ]
+                    ],
+                    "length": 76.49,
+                    "angle": -115.56,
+                    "angle_difference": 3.05,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 35,
+                    "type": "line",
+                    "points": [
+                        [
+                            409,
+                            378
+                        ],
+                        [
+                            412,
+                            362
+                        ]
+                    ],
+                    "length": 16.28,
+                    "angle": -79.38,
+                    "angle_difference": 36.18,
+                    "interpolation_resolution": 5.81,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 36,
+                    "type": "line",
+                    "points": [
+                        [
+                            413,
+                            361
+                        ],
+                        [
+                            424,
+                            341
+                        ]
+                    ],
+                    "length": 22.83,
+                    "angle": -61.19,
+                    "angle_difference": 18.19,
+                    "interpolation_resolution": 4.91,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 37,
+                    "type": "line",
+                    "points": [
+                        [
+                            425,
+                            340
+                        ],
+                        [
+                            438,
+                            329
+                        ]
+                    ],
+                    "length": 17.03,
+                    "angle": -40.24,
+                    "angle_difference": 20.95,
+                    "interpolation_resolution": 5.05,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 38,
+                    "type": "line",
+                    "points": [
+                        [
+                            439,
+                            329
+                        ],
+                        [
+                            470,
+                            319
+                        ]
+                    ],
+                    "length": 32.57,
+                    "angle": -17.88,
+                    "angle_difference": 22.36,
+                    "interpolation_resolution": 5.12,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 39,
+                    "type": "line",
+                    "points": [
+                        [
+                            471,
+                            318
+                        ],
+                        [
+                            485,
+                            312
+                        ]
+                    ],
+                    "length": 15.23,
+                    "angle": -23.2,
+                    "angle_difference": 5.32,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 40,
+                    "type": "line",
+                    "points": [
+                        [
+                            486,
+                            311
+                        ],
+                        [
+                            495,
+                            306
+                        ]
+                    ],
+                    "length": 10.3,
+                    "angle": -29.05,
+                    "angle_difference": 5.86,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 41,
+                    "type": "line",
+                    "points": [
+                        [
+                            496,
+                            305
+                        ],
+                        [
+                            504,
+                            299
+                        ]
+                    ],
+                    "length": 10.0,
+                    "angle": -36.87,
+                    "angle_difference": 7.82,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 42,
+                    "type": "line",
+                    "points": [
+                        [
+                            505,
+                            297
+                        ],
+                        [
+                            511,
+                            289
+                        ]
+                    ],
+                    "length": 10.0,
+                    "angle": -53.13,
+                    "angle_difference": 16.26,
+                    "interpolation_resolution": 4.81,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 43,
+                    "type": "line",
+                    "points": [
+                        [
+                            511,
+                            288
+                        ],
+                        [
+                            520,
+                            274
+                        ]
+                    ],
+                    "length": 16.64,
+                    "angle": -57.26,
+                    "angle_difference": 4.13,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 44,
+                    "type": "circ",
+                    "points": [
+                        [
+                            520,
+                            273
+                        ],
+                        [
+                            524,
+                            263
+                        ],
+                        [
+                            515,
+                            259
+                        ]
+                    ],
+                    "length": 29.18,
+                    "angle": -109.65,
+                    "angle_difference": 52.39,
+                    "interpolation_resolution": 6.62,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 45,
+                    "type": "line",
+                    "points": [
+                        [
+                            514,
+                            258
+                        ],
+                        [
+                            485,
+                            262
+                        ]
+                    ],
+                    "length": 29.27,
+                    "angle": 172.15,
+                    "angle_difference": 78.2,
+                    "interpolation_resolution": 7.91,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 46,
+                    "type": "line",
+                    "points": [
+                        [
+                            484,
+                            263
+                        ],
+                        [
+                            474,
+                            266
+                        ]
+                    ],
+                    "length": 10.44,
+                    "angle": 163.3,
+                    "angle_difference": 8.85,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 47,
+                    "type": "line",
+                    "points": [
+                        [
+                            473,
+                            267
+                        ],
+                        [
+                            453,
+                            275
+                        ]
+                    ],
+                    "length": 21.54,
+                    "angle": 158.2,
+                    "angle_difference": 5.1,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 48,
+                    "type": "line",
+                    "points": [
+                        [
+                            452,
+                            276
+                        ],
+                        [
+                            442,
+                            280
+                        ]
+                    ],
+                    "length": 10.77,
+                    "angle": 158.2,
+                    "angle_difference": 0.0,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 49,
+                    "type": "line",
+                    "points": [
+                        [
+                            441,
+                            281
+                        ],
+                        [
+                            431,
+                            284
+                        ]
+                    ],
+                    "length": 10.44,
+                    "angle": 163.3,
+                    "angle_difference": 5.1,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 50,
+                    "type": "line",
+                    "points": [
+                        [
+                            430,
+                            285
+                        ],
+                        [
+                            414,
+                            289
+                        ]
+                    ],
+                    "length": 16.49,
+                    "angle": 165.96,
+                    "angle_difference": 2.66,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 51,
+                    "type": "line",
+                    "points": [
+                        [
+                            413,
+                            290
+                        ],
+                        [
+                            388,
+                            291
+                        ]
+                    ],
+                    "length": 25.02,
+                    "angle": 177.71,
+                    "angle_difference": 11.75,
+                    "interpolation_resolution": 4.59,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 52,
+                    "type": "line",
+                    "points": [
+                        [
+                            387,
+                            291
+                        ],
+                        [
+                            368,
+                            282
+                        ]
+                    ],
+                    "length": 21.02,
+                    "angle": -154.65,
+                    "angle_difference": 27.64,
+                    "interpolation_resolution": 5.38,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 53,
+                    "type": "line",
+                    "points": [
+                        [
+                            367,
+                            281
+                        ],
+                        [
+                            356,
+                            266
+                        ]
+                    ],
+                    "length": 18.6,
+                    "angle": -126.25,
+                    "angle_difference": 28.4,
+                    "interpolation_resolution": 5.42,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 54,
+                    "type": "line",
+                    "points": [
+                        [
+                            355,
+                            265
+                        ],
+                        [
+                            350,
+                            241
+                        ]
+                    ],
+                    "length": 24.52,
+                    "angle": -101.77,
+                    "angle_difference": 24.49,
+                    "interpolation_resolution": 5.22,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 55,
+                    "type": "line",
+                    "points": [
+                        [
+                            349,
+                            240
+                        ],
+                        [
+                            350,
+                            192
+                        ]
+                    ],
+                    "length": 48.01,
+                    "angle": -88.81,
+                    "angle_difference": 12.96,
+                    "interpolation_resolution": 4.65,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 56,
+                    "type": "line",
+                    "points": [
+                        [
+                            350,
+                            191
+                        ],
+                        [
+                            348,
+                            170
+                        ]
+                    ],
+                    "length": 21.1,
+                    "angle": -95.44,
+                    "angle_difference": 6.63,
+                    "interpolation_resolution": 4.0,
+                    "transition_flag": false
+                },
+                {
+                    "segment_id": 57,
+                    "type": "line",
+                    "points": [
+                        [
+                            347,
+                            168
+                        ],
+                        [
+                            341,
+                            160
+                        ]
+                    ],
+                    "length": 10.0,
+                    "angle": -126.87,
+                    "angle_difference": 31.43,
+                    "interpolation_resolution": 5.57,
+                    "transition_flag": true
+                },
+                {
+                    "segment_id": 58,
+                    "type": "line",
+                    "points": [
+                        [
+                            341,
+                            159
+                        ],
+                        [
+                            332,
+                            152
+                        ]
+                    ],
+                    "length": 11.4,
+                    "angle": -142.13,
+                    "angle_difference": 15.26,
+                    "interpolation_resolution": 4.76,
+                    "transition_flag": true
+                }
+            ]
+        }
+    ]
+}

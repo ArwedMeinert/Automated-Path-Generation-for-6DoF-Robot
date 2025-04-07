@@ -1,0 +1,10 @@
+.PROGRAM MainDecoration ()
+	BASE NULL
+	HOME
+	POINT aruco = FRAME (o1, ox1, oy1, o1) ;Define the workobject in the bottom right corner of the aruco marker
+	CALL CreateServer;Create a server on the robot
+	PCABORT ; stop all other PC Programs
+	CALL RobotMotion;Call main routine to draw the decoration
+	TCP_CLOSE .ret, socketid
+	TCP_END_LISTEN .ret, port
+.END

@@ -1,0 +1,126 @@
+.PROGRAM RobotMotion ()
+  .ret2 = -1
+  .ret = -1
+  .timeout = 1
+  .$command = ""
+  .max_length = 255
+  .buffer_no = 0
+  .buffer = 0
+  WHILE .ret < 0 DO
+    TCP_RECV .ret, socketid, $recv_buf[0], rcv_cnt, .timeout, .max_length ;Receive the "Start" command indicating that it needs to move
+    TWAIT 0.2
+  END
+  .ret = -1
+  .$command = $recv_buf[0] ; variable where the command is stored
+  IF .$command <> "Start" THEN ; Only option is start in the beginning
+    TCP_CLOSE .ret, socketid; If invalid command, the server is closed
+    TCP_END_LISTEN .ret, port
+    PRINT "Wrong Command: ", .$command
+  ELSE ; command is ""start""
+    PCEXECUTE 3: ReceiveData.pc;calls the PC program for asyncronous Communication while the robot is moving
+    SIGNAL -TransmissionEnd
+    SIGNAL -MotionReceived
+    SIGNAL -MotionEnded
+    
+  END
+  
+  POINT aruco = FRAME (o1, ox1, oy1, o1) ;define the Workobject
+  BASE aruco ;set base to the bottom right corner of the marker
+  TOOL spritze
+  WAIT SIG (MotionReceived);Indicates, that the first coordinate has been received by the PC Program
+  ACCURACY 20
+  SPEED 300 MM/S
+  JAPPRO TRANS (x_coord[0, 0, .buffer], y_coord[0, 0, .buffer], z_coord[0, 0, .buffer], -90, 180, -120), 40 ; Approach the first coordinate, even before the complete path has been parsed TO
+  ; to improve cycle time. While the robot moves, the rest of the path can be parsed
+  ; buffer_no is written by the PC program indicating the path number it has fully parsed. Transmission end indicates that the end command has been received
+  ;
+  ;Pum control to control the speed of the pump
+  PCEXECUTE 4: PumpControl.pc
+  SIGNAL -pumpon
+  SIGNAL PumpControlSig
+  WHILE buffer_no <> .buffer OR NOT SIG (TransmissionEnd) DO
+    WAIT buffer_no >= .buffer ; the fully parsed buffer needs to be one step ahead of the movement
+    JAPPRO TRANS (x_coord[0, 0, .buffer], y_coord[0, 0, .buffer], z_coord[0, 0, .buffer], -90, 180, -120), 40
+
+    WHILE buffer_no <> .buffer OR NOT SIG (TransmissionEnd) DO
+      WAIT buffer_no > .buffer
+      PRINT .buffer
+      ABS.SPEED ON
+      SPEED 200 MM/S ALWAYS
+      ACCURACY 20
+      JAPPRO TRANS (x_coord[0, 0, .buffer], y_coord[0, 0, .buffer], z_coord[0, 0, .buffer], -90, 180, -120), 20 ;approach teh first coordinate of the path
+      ;
+      ;MVWAIT 4 MM
+      ;SIGNAL pumpon
+      ;
+      ACCURACY 1 FINE
+      LMOVE TRANS (x_coord[0, 0, .buffer], y_coord[0, 0, .buffer], z_coord[0, 0, .buffer], -90, 180, -120);moves down to the start point
+      BREAK
+      TWAIT 0.1
+      SIGNAL pumpon ; start the pump (the speed control of the pump is handled by the pc program)
+      LMOVE TRANS (x_coord[0, 0, .buffer], y_coord[0, 0, .buffer], z_coord[0, 0, .buffer], -90, 180, -120);moves down to the start point
+      .j = 1
+      WHILE .j < i[.buffer] DO ;i is the amount of segments in a path. Repeats until all segments have been handled
+        SPEED speed_cmd[.j, .buffer] MM/S ALWAYS ;Correct peed segment received by the PC program
+        ACCURACY accuracy_cmd[.j, .buffer] ALWAYS ; Accuracy received by the PC program
+        IF $move_command[.j, .buffer] == "L" THEN
+          LMOVE TRANS (x_coord[.j, 0, .buffer], y_coord[.j, 0, .buffer], z_coord[.j, 0, .buffer], -90, 180, -120);linear movement
+          IF stop_dist[.j, .buffer] > 0 THEN ;Stop distance starts 10% before the end of the path
+            MVWAIT stop_dist[.j, .buffer] MM
+            SIGNAL -pumpon ;turn off pump
+          END
+        END
+        IF $move_command[.j, .buffer] == "P" THEN ;point
+          SIGNAL PumpOverride ;forces the pump to turn on (otherwise, the extruder would not move so the pump would be off)
+          TWAIT 0.5
+          SIGNAL -PumpOverride
+          SIGNAL -pumpon ; turn off pump!
+        END
+        IF $move_command[.j, .buffer] == "C" THEN
+          PRINT .j
+          PRINT "circle Point 1: X: ", x_coord[.j, 0, .buffer], " Y: ", y_coord[.j, 0, .buffer]
+          PRINT "circle Point 2: X: ", x_coord[.j, 1, .buffer], " Y: ", y_coord[.j, 1, .buffer]
+          LMOVE TRANS (x_coord[.j - 1, 0, .buffer], y_coord[.j - 1, 0, .buffer], z_coord[.j - 1, 0, .buffer], -90, 180, -120); not sure why this is needed, but it is
+          C1MOVE TRANS (x_coord[.j, 0, .buffer], y_coord[.j, 0, .buffer], z_coord[.j, 0, .buffer], -90, 180, -120);via
+          C2MOVE TRANS (x_coord[.j, 1, .buffer], y_coord[.j, 1, .buffer], z_coord[.j, 1, .buffer], -90, 180, -120);end
+          IF stop_dist[.j, .buffer] > 0 THEN
+            MVWAIT stop_dist[.j, .buffer] MM
+            SIGNAL -pumpon
+          END
+        END
+        .j = .j + 1 ; .j is the current segment of the path
+      END ; .j==i[.buffer]-> no more segments in the path
+      ACCURACY 1 FINE ;move to the last position accurately without interpolation
+      LMOVE TRANS (x_coord[.j - 1, 0, .buffer], y_coord[.j - 1, 0, .buffer], z_coord[.j - 1, 0, .buffer], -90, 180, -120)
+      BREAK
+      SIGNAL -MotionReceived ; Set signals
+      
+      SIGNAL -pumpon
+      SPEED 200 MM/S ;Increase speed to move to the next point
+      ACCURACY 20
+      SPEED 300 MM/S
+      LAPPRO TRANS (x_coord[.j - 1, 0, .buffer], y_coord[.j - 1, 0, .buffer], z_coord[.j - 1, 0, .buffer], -90, 180, -120), 20
+      .buffer = .buffer + 1
+      IF NOT SIG (TransmissionEnd) THEN ; already start moving to the approach of the next path position (should be parsed by now)
+        SPEED 300 MM/S
+        ACCURACY 20
+        JAPPRO TRANS (x_coord[0, 0, .buffer], y_coord[0, 0, .buffer], z_coord[0, 0, .buffer], -90, 180, -120), 30
+      END
+    END ;no more paths
+    
+
+  END
+ 
+     SIGNAL -TransmissionEnd
+    SIGNAL -MotionReceived
+    BASE NULL
+    SIGNAL -pumpon
+    PCABORT 1:
+    PCABORT 2:
+    PCEND 1:
+    PCEND 2:
+    SPEED 200 MM/S
+    SIGNAL -PumpControlSig
+    SIGNAL MotionEnded
+    HOME ;back to home
+.END

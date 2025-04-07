@@ -1,0 +1,13 @@
+.PROGRAM CreateServer() #0
+	.ret = -1
+	.ret2 = -1
+	.timeout = 10 ;10s timeout
+	socketid = -1
+	port = 8192 ;Port the server is created on
+	TCP_LISTEN .ret, port ;listens to the Port
+	WHILE socketid < 0 DO ;initally, socket id is -1. Onec a client has connected it changes to a positive value
+		TCP_ACCEPT socketid, port; accept all clients at the correct port
+		TWAIT 0.2
+	END
+	PRINT "Client Connected"
+.END
